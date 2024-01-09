@@ -1,54 +1,74 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const NavBarContainer = styled.div`
- position: absolute;
- display: flex;
- justify-content: space-between;
- align-items: center;
- justify-content: center;
- width: 100%;
- padding: 0.5rem 1rem;
- margin-top: 12rem;
- background-color: #1f1f1f;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
+  width: 200em;
+  margin-top: 2rem;
+  background-color: #1f1f1f;
 `;
 
 const NavBarItems = styled.ul`
- display: flex;
- list-style: none;
- margin: 0;
+  display: flex;
+  //  background-color: purple;
+  margin: 0;
+  padding-inline: 0rem;
 `;
 
 const NavBarLink = styled.div`
- text-decoration: none;
- margin: 0 0.9rem;
- padding: 0.25rem 2rem;
- border-right: 1px solid #373738;
- color: #FFF;
- color: #FFF;
- font-family: Barlow;
- font-size: 16px;
- font-style: normal;
- font-weight: 400;
- line-height: 22.86px; /* 142.875% */
- text-transform: uppercase;
+  text-decoration: none;
+  margin: 0 0.2rem;
+  padding: 0.4rem 2rem;
+  border-right: 1px solid #373738;
+  color: #fff;
+  font-family: Barlow;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
 
-
- &:hover {
+  &:hover {
     border-bottom: 1px solid #ffffff;
- }
+  }
 
- &.active {
+  &.active {
     border-bottom: 1px solid #ffffff;
- }
+  }
+`;
+
+const SubCategories = styled.div`
+  display: ${(props) => (props.show ? 'block' : 'none')};
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1f1f1f;
+  padding: 10px;
+  z-index: 1;
 `;
 
 const NavBar = () => {
+  const [showSubcategories, setShowSubcategories] = useState(false);
+
+  const handleMouseEnter = () => {
+    setShowSubcategories(true);
+  };
+
+  const handleMouseLeave = () => {
+    setShowSubcategories(false);
+  };
+
     return (
-       <NavBarContainer>
+       <NavBarContainer onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
          <NavBarItems>
-           <NavBarLink exact to="/">
+           <NavBarLink>
             CALÇADOS 
+            <SubCategories show={showSubcategories}>
+            <div>Subcategoria 1</div>
+            <div>Subcategoria 2</div>
+          </SubCategories>
            </NavBarLink>
            <NavBarLink to="/">
              MASCULINO

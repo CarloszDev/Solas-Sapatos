@@ -6,6 +6,7 @@ export const MainContainer = styled.div`
   width: 100%;
   justify-content: center;
   align-items: center;
+  // background-color: green;
 `;
 
 export const Header = styled.div`
