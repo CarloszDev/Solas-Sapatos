@@ -49,3 +49,11 @@ export const Input = styled.input`
     outline: none;
  }
 `;
+
+export const ContentContainer = styled.div`
+ display: flex;
+//  background-color: red;
+ align-self: flex-start;
+ width: 100%
+ 
+`;

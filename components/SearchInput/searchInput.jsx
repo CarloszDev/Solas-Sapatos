@@ -34,7 +34,24 @@ color: #000000;
  }
 `;
 
-const CustomInput = ({ label, type, name, value, onChange }) => {
+const SearchButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+
+  &:hover {
+    background-color: rgba(0,0,0, 0.1);
+  }
+`;
+
+const CustomInput = ({ label, type, name, value, onChange, onSearch }) => {
+
+  const handleClick = () => {
+    onSearch(); // Chame a função de pesquisa quando o botão for clicado
+  };
+
  return (
     <InputContainer>
       <Input
@@ -45,7 +62,9 @@ const CustomInput = ({ label, type, name, value, onChange }) => {
         onChange={onChange}
         id={name}
       />
-      <SearchIcon style={{color:'#000000'}} />
+      <SearchButton onClick={handleClick}>
+        <SearchIcon style={{ color: '#000000' }} />
+      </SearchButton>
     </InputContainer>
  );
 };

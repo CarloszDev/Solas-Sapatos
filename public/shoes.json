@@ -1,0 +1,16 @@
+[
+    {
+       "id": 1,
+       "name": "Adidas Stan Smith",
+       "brand": "Adidas",
+       "image": "https://link-para-a-imagem.com/adidas-stan-smith.jpg",
+       "sizes": [36, 37, 38, 39, 40]
+    },
+    {
+       "id": 2,
+       "name": "Nike Air Max 90",
+       "brand": "Nike",
+       "image": "https://link-para-a-imagem.com/nike-air-max-90.jpg",
+       "sizes": [36, 37, 38, 39, 40]
+    }
+   ]

@@ -16,6 +16,27 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
   }
 
+  @font-face {
+    font-family: 'Jolly Lodger';
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://fonts.googleapis.com/css2?family=Jolly+Lodger&display=swap');
+  }
+
+  @font-face {
+    font-family: 'Rubik';
+    font-style: normal;
+    font-weight: 300;
+    src: url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+  }
+
+  @font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 700;
+    src: url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap');
+  }
+
   a {
     font-weight: 500;
     color: #646cff;
@@ -31,6 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     place-items: center;
     justify-content: center;
     // background-color: red;
+    font-family: 'Barlow', sans-serif;
   }
 
   h1 {
