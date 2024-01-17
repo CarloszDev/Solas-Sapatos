@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
@@ -12,8 +12,7 @@ const Filters = styled.div`
  display: flex;
  flex-direction: column;
  width: 32vh;
- margin-left: 4vh;
- margin-right: 12vh;
+ margin-right: 8vh;
  margin-top: 4vh;
 //  background-color: gray;
 `;
@@ -156,6 +155,9 @@ function App() {
  const [hoveredCardId, setHoveredCardId] = useState(null);
  const numbersArray = Array.from({ length: 10 }, (_, index) => 34 + index);
  const marcasDeSapato = ['Nike', 'Adidas', 'Puma', 'Reebok', 'Vans', 'Converse', 'New Balance'];
+ const [todosItens, setTodosItens] = useState([]);
+ const [pagina, setPagina] = useState(1);
+ const api_key = '930a34e6973ad67a34f820a6dafa25a5d72eb43599b4a1ab5e7c913426c14c45594a0d53';
  const [shoes, setShoes] = useState([
     {
       id: 1,
@@ -235,6 +237,32 @@ function App() {
     }
     return false;
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`https://bling.com.br/Api/v2/produtos/page=${pagina}/json`, {
+          params: { apikey: api_key},
+          mode: 'no-cors',
+        });
+
+        const data = response.data;
+
+        setTodosItens((prevItens) => [...prevItens, ...data.retorno.produtos]);
+
+        if (data.retorno.produtos.length > 0) {
+          setPagina((prevPagina) => prevPagina + 1);
+        }
+
+        console.log('Response ||', todosItens);
+
+      } catch (error) {
+        console.error('Erro ao obter dados da API', error);
+      }
+    };
+
+    fetchData();
+  }, []); 
   
 
   const handleSizeFilter = (size) => {
@@ -296,7 +324,7 @@ function App() {
                 />
               }
               label={marca}
-              style={{ color: '#000000', fontSize: 20 }}
+              style={{ color: '#000000', fontSize: 20, fontWeight: 800 }}
               />
               {/* <input
                 type="checkbox"

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const NavBarContainer = styled.div`
   display: flex;
-  width: 198vh;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   justify-content: center;
@@ -13,14 +13,12 @@ const NavBarContainer = styled.div`
 
 const NavBarItems = styled.ul`
   display: flex;
-  //  background-color: purple;
   margin: 0;
   padding-inline: 0rem;
 `;
 
 const NavBarLink = styled.div`
   text-decoration: none;
-  margin: 0 0.2rem;
   padding: 0.4rem 2rem;
   border-right: 1px solid #373738;
   color: #fff;
@@ -32,25 +30,43 @@ const NavBarLink = styled.div`
 
   &:hover {
     color: #1F8BFF;
-  }
 
-  &.active {
-    border-bottom: 1px solid #ffffff;
+    &.active {
+      border-bottom: 1px solid #ffffff;
+    }
   }
 `;
 
 const DropDownItem = styled.div`
-  margin: 0 0.2rem;
-  padding: 0.4rem 2rem;
-  border-right: 1px solid #373738;
   text-decoration: none;
-  border-right: 1px solid #373738;
+  margin-top: 2.5vh;
   color: #fff;
   font-family: Barlow;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+
+  &.active {
+    border-bottom: 1px solid #ffffff;
+  }
+`;
+
+const DropDownFirstItem = styled.div`
+  border-right: 1px solid #2B2B2C;
+  margin-top: 2.5vh;
+  color: #fff;
+  font-family: Barlow;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 
   &.active {
     border-bottom: 1px solid #ffffff;
@@ -58,7 +74,10 @@ const DropDownItem = styled.div`
 `;
 
 const SubCategories = styled.div`
-  display: ${(props) => (props.show ? 'block' : 'none')};
+  display: ${(props) => (props.show ? 'grid' : 'none')};
+  grid-template-columns: repeat(2, 4fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0;
   position: absolute;
   width: 100%;
   left: 0;
@@ -81,131 +100,54 @@ const NavBar = () => {
   const [showHidratantes, setShowHidratantes] = useState(false);
   const [showNossaMarca, setShowNossaMarca] = useState(false);
 
-  const handleMouseEnterCalçados = () => {
-    setShowCalçados(true);
+  const categories = [
+    { label: 'CALÇADOS', subcategories: ['Masculino - 38 ao 45', 'Feminino - 34 ao 39', 'Baby/Infantil - 18 ao 33'] },
+    { label: 'CHUTEIRAS', subcategories: ['Campo - 34 ao 45', 'Society - 34 ao 45', 'Salão 34 ao 45', 'Masculino - 38 ao 45', 'Feminino 34 ao 39', 'Baby/Infantil - 18 ao 33'] },
+    { label: 'CHINELOS', subcategories: ['Campo - 34 ao 45', 'Society - 34 ao 45', 'Salão - 34 ao 45'] },
+    { label: 'SANDÁLIAS', subcategories: [] },
+    { label: 'CROCS', subcategories: ['Masculino - 38 ao 45', 'Feminino - 34 ao 39', 'Infantil - 18 ao 33' ] },
+    { label: 'BONÉS', subcategories: [] },
+    { label: 'PERFUMES', subcategories: ['Masculino', 'Feminino'] },
+    { label: 'CARTEIRAS', subcategories: ['Masculina', 'Feminina'] },
+    { label: 'MOCHILAS', subcategories: ['Adulto', 'Infantil'] },
+    { label: 'BOLSAS', subcategories: [] },
+    { label: 'USESHEIS', subcategories: ['Masculino 38 ao 45', 'Feminino - 34 ao 39'] },
+    { label: 'DIVERSOS', subcategories: ['Porta Cartões', 'Relógios' ] },
+  ];
+  
+    const [activeCategory, setActiveCategory] = useState(null);
+  
+    const handleMouseEnter = (index) => {
+      setActiveCategory(index);
+    };
+  
+    const handleMouseLeave = () => {
+      setActiveCategory(null);
+    };
+  
+    return (
+      <NavBarContainer>
+        <NavBarItems>
+          {categories.map((category, index) => (
+            <NavBarLink
+              key={index}
+              onMouseEnter={() => handleMouseEnter(index)}
+              onMouseLeave={handleMouseLeave}
+              className={activeCategory === index ? 'active' : ''}
+            >
+              {category.label}
+              {category.subcategories && category.subcategories.length > 0 && (
+                <SubCategories show={activeCategory === index}>
+                  {category.subcategories.map((sub, subIndex) => (
+                    <DropDownFirstItem key={subIndex}>{sub}</DropDownFirstItem>
+                  ))}
+                </SubCategories>
+              )}
+            </NavBarLink>
+          ))}
+        </NavBarItems>
+      </NavBarContainer>
+    );
   };
-
-  const handleMouseLeaveCalçados = () => {
-    setShowCalçados(false);
-  };
-
-  const handleMouseEnterMasculino = () => {
-    setShowMasculino(true);
-  };
-
-  const handleMouseLeaveMasculino = () => {
-    setShowMasculino(false);
-  };
-
-  const handleMouseEnterCategoriaPadrao = () => {
-    setShowCategoriaPadrao(true);
-  };
-
-  const handleMouseLeaveCategoriaPadrao = () => {
-    setShowCategoriaPadrao(false);
-  };
-
-  const handleMouseEnterDiversosUnissex = () => {
-    setShowDiversosUnissex(true);
-  };
-
-  const handleMouseLeaveDiversosUnissex = () => {
-    setShowDiversosUnissex(false);
-  };
-
-  const handleMouseEnterColonias = () => {
-    setShowColonias(true);
-  };
-
-  const handleMouseLeaveColonias = () => {
-    setShowColonias(false);
-  };
-
-  const handleMouseEnterCrocs = () => {
-    setShowCrocs(true);
-  };
-
-  const handleMouseLeaveCrocs = () => {
-    setShowCrocs(false);
-  };
-
-  const handleMouseEnterHidratantes = () => {
-    setShowHidratantes(true);
-  };
-
-  const handleMouseLeaveHidratantes = () => {
-    setShowHidratantes(false);
-  };
-
-  const handleMouseEnterNossaMarca = () => {
-    setShowNossaMarca(true);
-  };
-
-  const handleMouseLeaveNossaMarca = () => {
-    setShowNossaMarca(false);
-  };
-
-  return (
-    <NavBarContainer>
-      <NavBarItems>
-        <NavBarLink onMouseEnter={handleMouseEnterCalçados} onMouseLeave={handleMouseLeaveCalçados}>
-          CALÇADOS
-          <SubCategories show={showCalçados}>
-            <DropDownItem>Aaaaaa</DropDownItem>
-          </SubCategories>
-        </NavBarLink>
-        <NavBarLink onMouseEnter={handleMouseEnterMasculino} onMouseLeave={handleMouseLeaveMasculino}>
-          MASCULINO
-          <SubCategories show={showMasculino}>
-            <DropDownItem>Subcategoria 4</DropDownItem>
-            <DropDownItem>Subcategoria 5</DropDownItem>
-          </SubCategories>
-        </NavBarLink>
-        <NavBarLink onMouseEnter={handleMouseEnterCategoriaPadrao} onMouseLeave={handleMouseLeaveCategoriaPadrao}>
-          CATEGORIA PADRÂO
-          <SubCategories show={showCategoriaPadrao}>
-            <DropDownItem>Subcategoria 6</DropDownItem>
-            <DropDownItem>Subcategoria 7</DropDownItem>
-          </SubCategories>
-        </NavBarLink>
-        <NavBarLink onMouseEnter={handleMouseEnterDiversosUnissex} onMouseLeave={handleMouseLeaveDiversosUnissex}>
-          DIVERSOS/UNISSEX
-          <SubCategories show={showDiversosUnissex}>
-            <DropDownItem>Subcategoria 4</DropDownItem>
-            <DropDownItem>Subcategoria 5</DropDownItem>
-          </SubCategories>
-        </NavBarLink>
-        <NavBarLink onMouseEnter={handleMouseEnterColonias} onMouseLeave={handleMouseLeaveColonias}>
-          COLÔNIAS
-          <SubCategories show={showColonias}>
-            <DropDownItem>Subcategoria 4</DropDownItem>
-            <DropDownItem>Subcategoria 5</DropDownItem>
-          </SubCategories>
-        </NavBarLink>
-        <NavBarLink onMouseEnter={handleMouseEnterCrocs} onMouseLeave={handleMouseLeaveCrocs}>
-          CROCS
-          <SubCategories show={showCrocs}>
-            <DropDownItem>Subcategoria 4</DropDownItem>
-            <DropDownItem>Subcategoria 5</DropDownItem>
-          </SubCategories>
-        </NavBarLink>
-        <NavBarLink onMouseEnter={handleMouseEnterHidratantes} onMouseLeave={handleMouseLeaveHidratantes}>
-          HIDRATANTES
-          <SubCategories show={showHidratantes}>
-            <DropDownItem>Subcategoria 4</DropDownItem>
-            <DropDownItem>Subcategoria 5</DropDownItem>
-          </SubCategories>
-        </NavBarLink>
-        <NavBarLink onMouseEnter={handleMouseEnterNossaMarca} onMouseLeave={handleMouseLeaveNossaMarca}>
-          NOSSA MARCA
-          <SubCategories show={showNossaMarca}>
-            <DropDownItem>Subcategoria 4</DropDownItem>
-            <DropDownItem>Subcategoria 5</DropDownItem>
-          </SubCategories>
-        </NavBarLink>
-      </NavBarItems>
-    </NavBarContainer>
-  );
-};
-
-export default NavBar;
+  
+  export default NavBar
