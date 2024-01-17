@@ -157,7 +157,7 @@ function App() {
  const marcasDeSapato = ['Nike', 'Adidas', 'Puma', 'Reebok', 'Vans', 'Converse', 'New Balance'];
  const [todosItens, setTodosItens] = useState([]);
  const [pagina, setPagina] = useState(1);
- const api_key = '930a34e6973ad67a34f820a6dafa25a5d72eb43599b4a1ab5e7c913426c14c45594a0d53';
+ const api_key = 'd49aa589997bda86d02e647cf71099cfb9e229c0';
  const [shoes, setShoes] = useState([
     {
       id: 1,
@@ -241,9 +241,8 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://bling.com.br/Api/v2/produtos/page=${pagina}/json`, {
-          params: { apikey: api_key},
-          mode: 'no-cors',
+        const response = await axios.get(`https://www.bling.com.br/Api/v3/produtos?pagina=${pagina}`, {
+          headers: { Authorization: `Bearer ${api_key}`},
         });
 
         const data = response.data;
