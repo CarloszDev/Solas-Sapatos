@@ -17,15 +17,33 @@ export const Header = styled.div`
 `;
 
 export const Title = styled.h2`
-  display: flex;
   color: #000;
   font-family: Barlow;
   font-size: 35px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;
   text-transform: uppercase;
-`;
+
+  @media (max-width: 480px) {
+    font-size: 20px;
+  }
+  
+  /* iPads, tablets */
+  @media (min-width: 481px) and (max-width: 768px) {
+    font-size: 25px;
+  }
+  
+  /* Telas pequenas, laptops */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    font-size: 30px;
+  }
+  
+  /* Desktops, telas grandes */
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    /* Estilos para desktops e telas grandes */
+  }
+  
+`; 
 
 export const InputContainer = styled.div`
  width: 100%;

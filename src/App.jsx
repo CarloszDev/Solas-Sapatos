@@ -15,6 +15,7 @@ const Filters = styled.div`
  margin-right: 8vh;
  margin-top: 4vh;
 //  background-color: gray;
+
 `;
 
 const NumbersFilters = styled.div`
@@ -26,6 +27,32 @@ const NumbersFilters = styled.div`
  gap: 20px;
  flex-wrap: wrap;
  width: 25vh;
+ 
+ @media (min-width: 1920px) {
+  /* Adicione estilos para 1920x1080 */
+}
+
+@media (min-width: 1366px) {
+  /* Adicione estilos para 1366x768 */
+}
+
+@media (min-width: 1440px) {
+  /* Adicione estilos para 1440x900 */
+}
+
+@media (min-width: 1280px) {
+  /* Adicione estilos para 1280x720 */
+}
+
+// Adicione mais media queries conforme necessário...
+
+@media (max-width: 360px) {
+  /* Adicione estilos para 360x800 e 360x640 */
+}
+
+@media (max-width: 414px) {
+  /* Adicione estilos para 414x896 */
+}
 `;
 
 const BrandsFilters = styled.div`
@@ -37,6 +64,32 @@ const BrandsFilters = styled.div`
  gap: 20px;
  flex-wrap: wrap;
  width: 25vh;
+
+ @media (min-width: 1920px) {
+  /* Adicione estilos para 1920x1080 */
+}
+
+@media (min-width: 1366px) {
+  /* Adicione estilos para 1366x768 */
+}
+
+@media (min-width: 1440px) {
+  /* Adicione estilos para 1440x900 */
+}
+
+@media (min-width: 1280px) {
+  /* Adicione estilos para 1280x720 */
+}
+
+// Adicione mais media queries conforme necessário...
+
+@media (max-width: 360px) {
+  /* Adicione estilos para 360x800 e 360x640 */
+}
+
+@media (max-width: 414px) {
+  /* Adicione estilos para 414x896 */
+}
 `;
 
 const FilterHeader = styled.span`
@@ -47,6 +100,18 @@ const FilterHeader = styled.span`
  font-style: normal;
  font-weight: bold;
  text-transform: uppercase;
+
+ 
+ /* iPads, tablets */
+ @media (max-width: 1080px) {
+   font-size: 14px;
+ }
+ 
+ /* Telas pequenas, laptops */
+ @media (min-width: 1080px) and (max-width: 1276px) {
+   font-size: 15px;
+ }
+ 
 `;
 
 const FilterOption = styled.button`
@@ -64,6 +129,32 @@ const FilterOption = styled.button`
  &:hover {
     background-color: ${({ checked }) => (checked ? '#1D7CE1' : '#e6e6e6')};
  }
+
+ @media (min-width: 1920px) {
+  /* Adicione estilos para 1920x1080 */
+}
+
+@media (min-width: 1366px) {
+  /* Adicione estilos para 1366x768 */
+}
+
+@media (min-width: 1440px) {
+  /* Adicione estilos para 1440x900 */
+}
+
+@media (min-width: 1280px) {
+  /* Adicione estilos para 1280x720 */
+}
+
+// Adicione mais media queries conforme necessário...
+
+@media (max-width: 360px) {
+  /* Adicione estilos para 360x800 e 360x640 */
+}
+
+@media (max-width: 414px) {
+  /* Adicione estilos para 414x896 */
+}
 `;
 
 const CardsContainer = styled.div`
@@ -72,6 +163,32 @@ const CardsContainer = styled.div`
  grid-gap: 60px 100px;
  margin-top: 10vh;
 //  background-color: red;
+
+@media (min-width: 1920px) {
+  /* Adicione estilos para 1920x1080 */
+}
+
+@media (min-width: 1366px) {
+  /* Adicione estilos para 1366x768 */
+}
+
+@media (min-width: 1440px) {
+  /* Adicione estilos para 1440x900 */
+}
+
+@media (min-width: 1280px) {
+  /* Adicione estilos para 1280x720 */
+}
+
+// Adicione mais media queries conforme necessário...
+
+@media (max-width: 360px) {
+  /* Adicione estilos para 360x800 e 360x640 */
+}
+
+@media (max-width: 414px) {
+  /* Adicione estilos para 414x896 */
+}
 `;
 
 const Card = styled.div`
@@ -84,21 +201,48 @@ const Card = styled.div`
   color: #000000;
   border-radius: 20px;
   transition: transform 0.3s ease-in-out;
-  height: 350px;
+  height: 380px;
 
   &:hover {
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
     transform: scale(1.1);
+  }
+
+  @media (min-width: 1920px) {
+    /* Adicione estilos para 1920x1080 */
+  }
+
+  @media (min-width: 1366px) {
+    /* Adicione estilos para 1366x768 */
+  }
+
+  @media (min-width: 1440px) {
+    /* Adicione estilos para 1440x900 */
+  }
+
+  @media (min-width: 1280px) {
+    /* Adicione estilos para 1280x720 */
+  }
+
+  // Adicione mais media queries conforme necessário...
+
+  @media (max-width: 360px) {
+    /* Adicione estilos para 360x800 e 360x640 */
+  }
+
+  @media (max-width: 414px) {
+    /* Adicione estilos para 414x896 */
   }
 `;
 
 const CardImage = styled.img`
   width: 100%;
   height: auto;
+  border-radius: 20px;
 `;
 
 const CardTitle = styled.h3`
-  margin-top: -1vh;
+  margin-top: 1vh;
   color: #000;
   text-align: center;
   font-family: 'Space Grotesk', sans-serif;
@@ -130,7 +274,6 @@ const IndividualSize = styled.span`
 const ContainerAvaliable = styled.div`
   font-size: 12px;
   margin-top: 2vh;
-  // background-color: gray;
 `;
 
 const AvailableInfo = styled.span`
@@ -142,6 +285,23 @@ const AvailableInfo = styled.span`
   background-color: #1F8BFF;
   opacity: ${({ isVisible }) => (isVisible ? '1' : '0')};
   transition: opacity 0.5s ease-in-out;
+`;
+
+const SubCategoriesContainer = styled.div`
+  display: ${(props) => (props.show ? 'grid' : 'none')};
+  grid-template-columns: repeat(2, 4fr);
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 0;
+  width: 134.1vh;
+  left: 31.5vh;
+  top: 24vh;
+  min-height: 12em;
+  background-color: #1f1f1f;
+  z-index: 1;
+  border: none;
+  opacity: ${(props) => (props.show ? 1 : 0)};
+  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
+  transition: opacity 0.3s, visibility 0.3s;
 `;
 
 function App() {
@@ -157,7 +317,9 @@ function App() {
  const marcasDeSapato = ['Nike', 'Adidas', 'Puma', 'Reebok', 'Vans', 'Converse', 'New Balance'];
  const [todosItens, setTodosItens] = useState([]);
  const [pagina, setPagina] = useState(1);
- const api_key = 'd49aa589997bda86d02e647cf71099cfb9e229c0';
+ const api_key = '930a34e6973ad67a34f820a6dafa25a5d72eb43599b4a1ab5e7c913426c14c45594a0d53';
+ const [showSubCategories, setShowSubCategories] = useState(false);
+ const [activeSubCategories, setActiveSubCategories] = useState(null);
  const [shoes, setShoes] = useState([
     {
       id: 1,
@@ -165,20 +327,26 @@ function App() {
       image: '../assets/nikeDunk.jpg',
       sizes: [40, 41, 42],
       brand: 'Nike',
+      category: 'CALÇADOS',
+      subcategory: 'Masculino - 38 ao 45',
     },
     {
       id: 2,
-      name: 'Sapato Adidas',
-      image: '../assets/nikeDunk.jpg',
+      name: 'Chinela Havaianas Amarela Neon',
+      image: '../assets/sandaliaFem.jpeg',
       sizes: [38, 39, 40],
-      brand: 'Adidas',
+      brand: 'Havaianas',
+      category: 'CALÇADOS',
+      subcategory: 'Feminino - 34 ao 39',
     },
     {
       id: 3,
       name: 'Sapato Adidas',
-      image: '../assets/nikeDunk.jpg',
+      image: '../assets/adidasProY.jpeg',
       sizes: [38, 39, 40],
       brand: 'Adidas',
+      category: 'CALÇADOS',
+      subcategory: 'Feminino - 34 ao 39',
     },
     {
       id: 5,
@@ -186,6 +354,8 @@ function App() {
       image: '../assets/nikeDunk.jpg',
       sizes: [38, 39, 40],
       brand: 'Adidas',
+      category: 'CALÇADOS',
+      subcategory: 'Feminino - 34 ao 39',
     },
     {
       id: 6,
@@ -193,6 +363,8 @@ function App() {
       image: '../assets/nikeDunk.jpg',
       sizes: [38, 39, 40],
       brand: 'Adidas',
+      category: 'CALÇADOS',
+      subcategory: 'Feminino - 34 ao 39',
     },
     {
       id: 7,
@@ -200,6 +372,8 @@ function App() {
       image: '../assets/nikeDunk.jpg',
       sizes: [43],
       brand: 'Adidas',
+      category: 'CALÇADOS',
+      subcategory: 'Feminino - 34 ao 39',
     },
     {
       id: 8,
@@ -207,6 +381,8 @@ function App() {
       image: '../assets/nikeDunk.jpg',
       sizes: [38, 39, 40],
       brand: 'Adidas',
+      category: 'CALÇADOS',
+      subcategory: 'Feminino - 34 ao 39',
     },
     {
       id: 9,
@@ -214,6 +390,8 @@ function App() {
       image: '../assets/nikeDunk.jpg',
       sizes: [38, 39, 40],
       brand: 'Adidas',
+      category: 'CALÇADOS',
+      subcategory: 'Feminino - 34 ao 39',
     },
     {
       id: 10,
@@ -221,12 +399,29 @@ function App() {
       image: '../assets/nikeDunk.jpg',
       sizes: [43],
       brand: 'Adidas',
+      category: 'CALÇADOS',
+      subcategory: 'Feminino - 34 ao 39',
     },
   ]);
 
+  const categories = [
+    { label: 'CALÇADOS', subcategories: ['Masculino', 'Feminino', 'Baby/Infanti'] },
+    { label: 'CHUTEIRAS', subcategories: ['Campo', 'Society', 'Salão', 'Masculino', 'Feminino', 'Baby/Infantil'] },
+    { label: 'CHINELOS', subcategories: ['Campo', 'Society', 'Salão'] },
+    { label: 'SANDÁLIAS', subcategories: [] },
+    { label: 'CROCS', subcategories: ['Masculino', 'Feminino', 'Infantil'] },
+    { label: 'BONÉS', subcategories: [] },
+    { label: 'PERFUMES', subcategories: ['Masculino', 'Feminino'] },
+    { label: 'CARTEIRAS', subcategories: ['Masculina', 'Feminina'] },
+    { label: 'MOCHILAS', subcategories: ['Adulto', 'Infantil'] },
+    { label: 'BOLSAS', subcategories: [] },
+    { label: 'USESHEIS', subcategories: ['Masculino', 'Feminino'] },
+    { label: 'DIVERSOS', subcategories: ['Porta Cartões', 'Relógios'] },
+  ];
+
   const filteredShoes = shoes.filter((shoe) => {
     const lowerCaseBrand = shoe.brand.toLowerCase();
-    
+
     if (
       (selectedBrand === '' || lowerCaseBrand === selectedBrand.toLowerCase()) &&
       (searchText === '' || shoe.name.toLowerCase().includes(searchText.toLowerCase())) &&
@@ -241,19 +436,15 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`https://www.bling.com.br/Api/v3/produtos?pagina=${pagina}`, {
-          headers: { Authorization: `Bearer ${api_key}`},
-        });
+        console.log('requisicao')
+
+        const response = await axios.get(`http://localhost:3001/api/produtos`, {
+          // params: { apikey: api_key },
+        });        console.log('requisicao/')
+
 
         const data = response.data;
-
-        setTodosItens((prevItens) => [...prevItens, ...data.retorno.produtos]);
-
-        if (data.retorno.produtos.length > 0) {
-          setPagina((prevPagina) => prevPagina + 1);
-        }
-
-        console.log('Response ||', todosItens);
+        setTodosItens((prevItens) => [...prevItens, ...data]);
 
       } catch (error) {
         console.error('Erro ao obter dados da API', error);
@@ -261,8 +452,11 @@ function App() {
     };
 
     fetchData();
-  }, []); 
-  
+  }, []);  
+
+  useEffect(() => {
+      console.log('response', todosItens);
+  }, [todosItens]);  
 
   const handleSizeFilter = (size) => {
     if (selectedSizes.includes(size)) {
@@ -297,7 +491,7 @@ function App() {
         <NavBar />
       </Header>
       <ContentContainer>
-      <Filters>
+        <Filters>
         <FilterHeader>- Tamanho</FilterHeader>
         <NumbersFilters>
           {numbersArray.map((number, index) => (
@@ -325,48 +519,36 @@ function App() {
               label={marca}
               style={{ color: '#000000', fontSize: 20, fontWeight: 800 }}
               />
-              {/* <input
-                type="checkbox"
-                id={marca}
-                name={marca}
-                
-                style={{backgroundColor: 'red'}}
-              /> */}
-              {/* <label htmlFor={marca}>{marca}</label> */}
             </div>
           ))}
         </BrandsFilters>
-      </Filters>
-      <CardsContainer>
-        {filteredShoes.map(shoe => (
-          <Card
-          key={shoe.id}
-          onMouseEnter={() => setHoveredCardId(shoe.id)}
+        </Filters>
+        <CardsContainer>
+          {filteredShoes.length > 0 ? (
+            filteredShoes.map((produto) => (
+              <Card
+          key={produto.id}
+          onMouseEnter={() => setHoveredCardId(produto.id)}
           onMouseLeave={() => setHoveredCardId(null)}
         >
-          <CardImage src={shoe.image} alt={shoe.name} />
-          {hoveredCardId !== shoe.id ? (
-            <>
-              <CardTitle>{shoe.name}</CardTitle>
-              <CardInfo>Disponiveis</CardInfo>
-            </>
-          ) : null}
-          {hoveredCardId !== shoe.id ? (
-            <CardShoesSize>
-              {shoe.sizes.map((size, index) => (
+          <CardImage src={produto.image} alt={produto.name} />
+          <CardTitle>{produto.name}</CardTitle>
+          <CardShoesSize>
+              {produto.sizes.map((size, index) => (
                 <IndividualSize key={index}>{size}</IndividualSize>
               ))}
-            </CardShoesSize>
-          ) : 
-          <ContainerAvaliable>
-             <AvailableInfo isVisible={true}>Disponivel</AvailableInfo>
-          </ContainerAvaliable>}
+            </CardShoesSize>        
         </Card>
-        ))}
-      </CardsContainer>
+            ))
+          ) : (
+            <div style={{ textAlign: 'center', marginTop: '50px', fontSize: '18px', color: '#000000', position: 'relative', left: '60%'}}>
+              Não existe produtos nessa categoria no momento.
+            </div>
+          )}
+        </CardsContainer>
       </ContentContainer>
     </MainContainer>
-  )
+  );
 }
 
 export default App;

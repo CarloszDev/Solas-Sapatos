@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 
 const InputContainer = styled.div`
- width: 150vh;
+ width: 130vh;
  padding: 0px 20px;
  margin: 8px 0;
  box-sizing: border-box;
@@ -15,6 +15,25 @@ const InputContainer = styled.div`
  align-items: center;
 
 // background-color: yellow;
+
+@media (max-width: 480px) {
+    width: 25vh;
+  }
+  
+  /* iPads, tablets */
+  @media (min-width: 481px) and (max-width: 768px) {
+    width: 40vh;
+  }
+  
+  /* Telas pequenas, laptops */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    width: 80vh;
+  }
+  
+  /* Desktops, telas grandes */
+  @media (min-width: 1025px) and (max-width: 1250px) {
+    width: 100vh;
+  }
 `;
 
 const Input = styled.input`
